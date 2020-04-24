@@ -1,7 +1,7 @@
 {
   "name": "osh",
   "description": "Create your JS and TS components and more",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Elias Gabriel @EliasGcf",
   "bin": {
     "osh": "./bin/run"

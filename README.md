@@ -19,7 +19,7 @@ $ npm install -g osh
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh/0.0.2 darwin-x64 node-v12.16.1
+osh/0.0.3 darwin-x64 node-v12.16.1
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -30,7 +30,6 @@ USAGE
 <!-- commands -->
 * [`osh create:component FILE-NAME`](#osh-createcomponent-file-name)
 * [`osh create:page [FILE]`](#osh-createpage-file)
-* [`osh hello [FILE]`](#osh-hello-file)
 * [`osh help [COMMAND]`](#osh-help-command)
 
 ## `osh create:component FILE-NAME`
@@ -52,7 +51,7 @@ ALIASES
   $ osh cp
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.2/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.3/src/commands/create/component.ts)_
 
 ## `osh create:page [FILE]`
 
@@ -68,27 +67,7 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.2/src/commands/create/page.ts)_
-
-## `osh hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ osh hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ osh hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/EliasGcf/osh/blob/v0.0.2/src/commands/hello.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.3/src/commands/create/page.ts)_
 
 ## `osh help [COMMAND]`
 
