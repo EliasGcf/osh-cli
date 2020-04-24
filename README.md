@@ -19,7 +19,7 @@ $ npm install -g osh
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh/0.0.1 darwin-x64 node-v12.16.1
+osh/0.0.2 darwin-x64 node-v12.16.1
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -28,30 +28,35 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`osh create:component [FILE]`](#osh-createcomponent-file)
+* [`osh create:component FILE-NAME`](#osh-createcomponent-file-name)
 * [`osh create:page [FILE]`](#osh-createpage-file)
 * [`osh hello [FILE]`](#osh-hello-file)
 * [`osh help [COMMAND]`](#osh-help-command)
 
-## `osh create:component [FILE]`
+## `osh create:component FILE-NAME`
 
-describe the command here
+Create new component inside src/components
 
 ```
 USAGE
-  $ osh create:component [FILE]
+  $ osh create:component FILE-NAME
+
+ARGUMENTS
+  FILE-NAME  Nome of the component
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
+  --ts        make with TypeScript
+
+ALIASES
+  $ osh cp
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.1/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.2/src/commands/create/component.ts)_
 
 ## `osh create:page [FILE]`
 
-describe the command here
+Create new page inside src/pages
 
 ```
 USAGE
@@ -63,7 +68,7 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.1/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.2/src/commands/create/page.ts)_
 
 ## `osh hello [FILE]`
 
@@ -83,7 +88,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/EliasGcf/osh/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/EliasGcf/osh/blob/v0.0.2/src/commands/hello.ts)_
 
 ## `osh help [COMMAND]`
 
