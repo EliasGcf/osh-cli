@@ -15,11 +15,11 @@ Create your JS and TS components and more
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g osh
+$ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh/0.0.3 darwin-x64 node-v12.16.1
+osh-cli/0.0.3 darwin-x64 node-v12.16.1
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
