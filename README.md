@@ -1,0 +1,104 @@
+osh
+===
+
+Create your JS and TS components and more
+
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![Version](https://img.shields.io/npm/v/osh.svg)](https://npmjs.org/package/osh)
+[![Downloads/week](https://img.shields.io/npm/dw/osh.svg)](https://npmjs.org/package/osh)
+[![License](https://img.shields.io/npm/l/osh.svg)](https://github.com/EliasGcf/osh/blob/master/package.json)
+
+<!-- toc -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
+# Usage
+<!-- usage -->
+```sh-session
+$ npm install -g osh
+$ osh COMMAND
+running command...
+$ osh (-v|--version|version)
+osh/0.0.1 darwin-x64 node-v12.16.1
+$ osh --help [COMMAND]
+USAGE
+  $ osh COMMAND
+...
+```
+<!-- usagestop -->
+# Commands
+<!-- commands -->
+* [`osh create:component [FILE]`](#osh-createcomponent-file)
+* [`osh create:page [FILE]`](#osh-createpage-file)
+* [`osh hello [FILE]`](#osh-hello-file)
+* [`osh help [COMMAND]`](#osh-help-command)
+
+## `osh create:component [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ osh create:component [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.1/src/commands/create/component.ts)_
+
+## `osh create:page [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ osh create:page [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.1/src/commands/create/page.ts)_
+
+## `osh hello [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ osh hello [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+
+EXAMPLE
+  $ osh hello
+  hello world from ./src/hello.ts!
+```
+
+_See code: [src/commands/hello.ts](https://github.com/EliasGcf/osh/blob/v0.0.1/src/commands/hello.ts)_
+
+## `osh help [COMMAND]`
+
+display help for osh
+
+```
+USAGE
+  $ osh help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+<!-- commandsstop -->
