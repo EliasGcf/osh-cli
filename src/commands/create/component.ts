@@ -1,7 +1,8 @@
 import {Command, flags} from '@oclif/command'
-import * as fs from 'fs'
-import path from 'path'
-import Handlebars from 'handlebars'
+import chalk from 'chalk'
+
+import AppError from '../../errors/AppError'
+import createComponentService from '../../services/CreateComponentService'
 
 export default class CreateComponent extends Command {
   static description = 'Create new component inside src/components'
@@ -10,7 +11,6 @@ export default class CreateComponent extends Command {
 
   static flags = {
     help: flags.help({char: 'h'}),
-    // flag with no value (-t, --ts)
     ts: flags.boolean({description: 'make with TypeScript'}),
   }
 
@@ -23,21 +23,23 @@ export default class CreateComponent extends Command {
   ]
 
   async run() {
-    const {args} = this.parse(CreateComponent)
+    const {args, flags} = this.parse(CreateComponent)
     const componentName = args['file-name']
+    const {ts} = flags
 
-    const pathTemplate = path.join(__dirname, '..', '..', 'templates', 'reactjs', 'javascript', 'component.hbs')
+    try {
+      const folderFullName = await createComponentService.execute({
+        componentName,
+        folder: 'src/components',
+        isTypeScript: ts,
+      })
 
-    const sourceTemplate = await fs.promises.readFile(pathTemplate, 'utf8')
-
-    const template = Handlebars.compile(sourceTemplate)
-
-    const contents = template({componentName})
-
-    await fs.promises.mkdir(`src/components/${componentName}`, {recursive: true})
-
-    await fs.promises.writeFile(`src/components/${componentName}/index.js`, contents)
-
-    this.log(componentName)
+      this.log(chalk.green(`Craeted ${folderFullName}`))
+      this.log('Finished 🚀')
+    } catch (err) {
+      if (err instanceof AppError) {
+        this.warn(err.message)
+      }
+    }
   }
 }
