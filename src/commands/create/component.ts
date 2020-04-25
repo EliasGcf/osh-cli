@@ -24,7 +24,7 @@ export default class CreateComponent extends Command {
 
   static args = [
     {
-      name: 'file-name',
+      name: 'component-name',
       description: 'Nome of the component',
       required: true,
     },
@@ -32,7 +32,7 @@ export default class CreateComponent extends Command {
 
   async run() {
     const {args, flags} = this.parse(CreateComponent)
-    const componentName = args['file-name']
+    const componentName = args['component-name']
     const folder = 'src/components'
     const {ts} = flags
 
