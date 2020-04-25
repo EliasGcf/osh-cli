@@ -2,37 +2,30 @@ import fs from 'fs'
 import path from 'path'
 import Handlebars from 'handlebars'
 
-import componentExists from '../utils/componentExists'
-import AppError from '../errors/AppError'
-
 import isReactNative from '../utils/isReactNative'
 
-interface CreateComponentServiceData {
+interface CreateStylesServiceData {
   componentName: string;
   folder: string;
   isTypeScript: boolean;
 }
 
-class CreateComponentService {
+class CreateStylesService {
   public async execute({
     componentName,
     folder,
     isTypeScript,
-  }: CreateComponentServiceData): Promise<string> {
+  }: CreateStylesServiceData): Promise<string> {
     const reactPath = isReactNative() ? 'react-native' : 'reactjs'
     const extensionPath = isTypeScript ? 'ts' : 'js'
     const folderWithName = `${folder}/${componentName}` // src/components/Input
 
-    if (componentExists({folder, componentName})) {
-      throw new AppError(`Component '${folderWithName}' already exists`)
-    }
+    // src/components/Input/style.{ts||js}
+    const fullFolderWithNameAndExtension = `${folderWithName}/style.${extensionPath}`
 
-    // src/components/Input/index.{tsx||js}
-    const fullFolderWithNameAndExtension = `${folderWithName}/index.${extensionPath === 'ts' ? 'tsx' : 'js'}`
-
-    const pathTemplate = path.join(__dirname, '..', 'templates', reactPath, extensionPath, 'component.hbs')
+    const pathTemplate = path.join(__dirname, '..', 'templates', reactPath, 'styles.hbs')
     const sourceTemplate = await fs.promises.readFile(pathTemplate, 'utf8')
-    const source = Handlebars.compile(sourceTemplate)({componentName})
+    const source = Handlebars.compile(sourceTemplate)({})
 
     await fs.promises.mkdir(folderWithName, {recursive: true})
     await fs.promises.writeFile(fullFolderWithNameAndExtension, source)
@@ -41,4 +34,4 @@ class CreateComponentService {
   }
 }
 
-export default new CreateComponentService()
+export default new CreateStylesService()

@@ -2,7 +2,10 @@ import {Command, flags} from '@oclif/command'
 import chalk from 'chalk'
 
 import AppError from '../../errors/AppError'
+import isInProjectFolder from '../../utils/isInProjectFolder'
+
 import createComponentService from '../../services/CreateComponentService'
+import createStylesService from '../../services/CreateStylesService'
 
 export default class CreateComponent extends Command {
   static description = 'Create new component inside src/components'
@@ -13,6 +16,11 @@ export default class CreateComponent extends Command {
     help: flags.help({char: 'h'}),
     ts: flags.boolean({description: 'make with TypeScript'}),
   }
+
+  static examples = [
+    '$ osh create:component Button',
+    '$ osh create:component Input --ts',
+  ]
 
   static args = [
     {
@@ -25,16 +33,28 @@ export default class CreateComponent extends Command {
   async run() {
     const {args, flags} = this.parse(CreateComponent)
     const componentName = args['file-name']
+    const folder = 'src/components'
     const {ts} = flags
 
     try {
-      const folderFullName = await createComponentService.execute({
+      if (!isInProjectFolder()) {
+        throw new AppError('This is not a Node.js project root folder')
+      }
+
+      const componentFolderFullName = await createComponentService.execute({
         componentName,
-        folder: 'src/components',
+        folder,
         isTypeScript: ts,
       })
+      this.log(chalk.green(`Craeted ${componentFolderFullName}`))
 
-      this.log(chalk.green(`Craeted ${folderFullName}`))
+      const stylesFolderFullName = await createStylesService.execute({
+        componentName,
+        folder,
+        isTypeScript: ts,
+      })
+      this.log(chalk.green(`Craeted ${stylesFolderFullName}`))
+
       this.log('Finished 🚀')
     } catch (err) {
       if (err instanceof AppError) {
