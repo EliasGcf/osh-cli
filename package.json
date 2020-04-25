@@ -1,7 +1,7 @@
 {
   "name": "osh-cli",
   "description": "Create your js/ts components and more",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Elias Gabriel @EliasGcf",
   "bin": {
     "osh": "./bin/run"

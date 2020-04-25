@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.5 darwin-x64 node-v12.16.1
+osh-cli/0.0.6 darwin-x64 node-v12.16.1
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -28,20 +28,20 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`osh create:component FILE-NAME`](#osh-createcomponent-file-name)
-* [`osh create:page [FILE]`](#osh-createpage-file)
+* [`osh create:component COMPONENT-NAME`](#osh-createcomponent-component-name)
+* [`osh create:page PAGE-NAME`](#osh-createpage-page-name)
 * [`osh help [COMMAND]`](#osh-help-command)
 
-## `osh create:component FILE-NAME`
+## `osh create:component COMPONENT-NAME`
 
 Create new component inside src/components
 
 ```
 USAGE
-  $ osh create:component FILE-NAME
+  $ osh create:component COMPONENT-NAME
 
 ARGUMENTS
-  FILE-NAME  Nome of the component
+  COMPONENT-NAME  Nome of the component
 
 OPTIONS
   -h, --help  show CLI help
@@ -49,25 +49,35 @@ OPTIONS
 
 ALIASES
   $ osh cp
+
+EXAMPLES
+  $ osh create:component Button
+  $ osh create:component Input --ts
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.5/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.6/src/commands/create/component.ts)_
 
-## `osh create:page [FILE]`
+## `osh create:page PAGE-NAME`
 
 Create new page inside src/pages
 
 ```
 USAGE
-  $ osh create:page [FILE]
+  $ osh create:page PAGE-NAME
+
+ARGUMENTS
+  PAGE-NAME  Nome of the page
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
+  --ts        make with TypeScript
+
+EXAMPLES
+  $ osh create:page SignIn
+  $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.5/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.6/src/commands/create/page.ts)_
 
 ## `osh help [COMMAND]`
 
