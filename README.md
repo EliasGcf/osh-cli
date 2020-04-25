@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.3 darwin-x64 node-v12.16.1
+osh-cli/0.0.4 darwin-x64 node-v12.16.1
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -51,7 +51,7 @@ ALIASES
   $ osh cp
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.3/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.4/src/commands/create/component.ts)_
 
 ## `osh create:page [FILE]`
 
@@ -67,7 +67,7 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.3/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.4/src/commands/create/page.ts)_
 
 ## `osh help [COMMAND]`
 
