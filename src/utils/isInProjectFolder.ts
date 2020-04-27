@@ -1,7 +1,7 @@
-import fs from 'fs'
+import fs from 'fs';
 
 export default function () {
-  const packageJsonExists = fs.existsSync('package.json')
+  const packageJsonExists = fs.existsSync('package.json');
 
-  return packageJsonExists
+  return packageJsonExists;
 }

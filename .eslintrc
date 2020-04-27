@@ -3,8 +3,14 @@
     "oclif",
     "oclif-typescript"
   ],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
+    "prettier/prettier": "error",
     "unicorn/filename-case": "off",
-    "unicorn/catch-error-name": "off"
+    "unicorn/catch-error-name": "off",
+    "object-curly-spacing": "off",
+    "semi":"off"
   }
 }
