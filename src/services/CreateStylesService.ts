@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import Handlebars from 'handlebars';
 
-import isReactNative from '../utils/isReactNative';
+import reactPath from '../utils/reactPath';
 
 interface CreateStylesServiceData {
   componentName: string;
@@ -16,7 +16,6 @@ class CreateStylesService {
     folder,
     isTypeScript,
   }: CreateStylesServiceData): Promise<string> {
-    const reactPath = isReactNative() ? 'react-native' : 'reactjs';
     const extensionPath = isTypeScript ? 'ts' : 'js';
     const folderWithName = `${folder}/${componentName}`; // src/components/Input
 
@@ -27,7 +26,7 @@ class CreateStylesService {
       __dirname,
       '..',
       'templates',
-      reactPath,
+      reactPath(),
       'styles.hbs',
     );
     const sourceTemplate = await fs.promises.readFile(pathTemplate, 'utf8');

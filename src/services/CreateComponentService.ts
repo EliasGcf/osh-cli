@@ -5,7 +5,7 @@ import Handlebars from 'handlebars';
 import componentExists from '../utils/componentExists';
 import AppError from '../errors/AppError';
 
-import isReactNative from '../utils/isReactNative';
+import reactPath from '../utils/reactPath';
 
 interface CreateComponentServiceData {
   componentName: string;
@@ -19,7 +19,6 @@ class CreateComponentService {
     folder,
     isTypeScript,
   }: CreateComponentServiceData): Promise<string> {
-    const reactPath = isReactNative() ? 'react-native' : 'reactjs';
     const extensionPath = isTypeScript ? 'ts' : 'js';
     const folderWithName = `${folder}/${componentName}`; // src/components/Input
 
@@ -36,7 +35,7 @@ class CreateComponentService {
       __dirname,
       '..',
       'templates',
-      reactPath,
+      reactPath(),
       extensionPath,
       'component.hbs',
     );

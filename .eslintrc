@@ -11,6 +11,8 @@
     "unicorn/filename-case": "off",
     "unicorn/catch-error-name": "off",
     "object-curly-spacing": "off",
-    "semi":"off"
+    "semi":"off",
+    "no-await-in-loop": "off",
+    "operator-linebreak": "off"
   }
 }

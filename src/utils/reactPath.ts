@@ -5,5 +5,9 @@ export default function () {
 
   const packageJsonParsed = JSON.parse(`${packageJson}`);
 
-  return Boolean(packageJsonParsed.dependencies['react-native']);
+  const reactPath = packageJsonParsed.dependencies['react-native']
+    ? 'react-native'
+    : 'reactjs';
+
+  return reactPath;
 }

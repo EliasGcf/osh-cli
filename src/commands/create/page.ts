@@ -15,6 +15,8 @@ export default class CreatePage extends Command {
     ts: flags.boolean({ description: 'make with TypeScript' }),
   };
 
+  static aliases = ['cp'];
+
   static examples = [
     '$ osh create:page SignIn',
     '$ osh create:page Dashboard --ts',
@@ -30,7 +32,6 @@ export default class CreatePage extends Command {
 
   async run() {
     const { args, flags } = this.parse(CreatePage);
-
     const componentName = args['page-name'];
     const folder = 'src/pages';
     const { ts } = flags;

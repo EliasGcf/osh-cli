@@ -10,7 +10,7 @@ import createStylesService from '../../services/CreateStylesService';
 export default class CreateComponent extends Command {
   static description = 'Create new component inside src/components';
 
-  static aliases = ['cp'];
+  static aliases = ['cc'];
 
   static flags = {
     help: flags.help({ char: 'h' }),
