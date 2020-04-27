@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.6 darwin-x64 node-v12.16.1
+osh-cli/0.0.7 darwin-x64 node-v12.16.2
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -48,14 +48,14 @@ OPTIONS
   --ts        make with TypeScript
 
 ALIASES
-  $ osh cp
+  $ osh cc
 
 EXAMPLES
   $ osh create:component Button
   $ osh create:component Input --ts
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh/blob/v0.0.6/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.7/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -72,12 +72,15 @@ OPTIONS
   -h, --help  show CLI help
   --ts        make with TypeScript
 
+ALIASES
+  $ osh cp
+
 EXAMPLES
   $ osh create:page SignIn
   $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh/blob/v0.0.6/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.7/src/commands/create/page.ts)_
 
 ## `osh help [COMMAND]`
 
