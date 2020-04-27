@@ -1,7 +1,7 @@
 osh
 ===
 
-Create your JS and TS components and more
+OmniStack Helper (osh) - Create your JS and TS components and more
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/osh.svg)](https://npmjs.org/package/osh)

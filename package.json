@@ -1,12 +1,12 @@
 {
   "name": "osh-cli",
-  "description": "Create your js/ts components and more",
+  "description": "OmniStack Helper (osh) - Create your JS and TS components and more",
   "version": "0.0.6",
   "author": "Elias Gabriel @EliasGcf",
   "bin": {
     "osh": "./bin/run"
   },
-  "bugs": "https://github.com/EliasGcf/osh/issues",
+  "bugs": "https://github.com/EliasGcf/osh-cli/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -34,7 +34,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/EliasGcf/osh",
+  "homepage": "https://github.com/EliasGcf/osh-cli",
   "keywords": [
     "oclif"
   ],
@@ -52,7 +52,7 @@
       }
     }
   },
-  "repository": "EliasGcf/osh",
+  "repository": "EliasGcf/osh-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme && if [ -e ./src/templates ]; then cp -a ./src/templates ./lib/; fi",
