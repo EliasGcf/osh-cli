@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.8 darwin-x64 node-v12.16.2
+osh-cli/0.0.9 darwin-x64 node-v12.16.2
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -44,9 +44,10 @@ ARGUMENTS
   COMPONENT-NAME  Nome of the component
 
 OPTIONS
-  -h, --help         show CLI help
-  -i, --index=index  create index file to export for default your components
-  --ts               make with TypeScript
+  -h, --help                 show CLI help
+  -i, --index=index          create index file to export for default your components
+  -p, --path=src/components  [default: src/components] change the path to your component
+  --ts                       make with TypeScript
 
 ALIASES
   $ osh cc
@@ -54,10 +55,11 @@ ALIASES
 EXAMPLES
   $ osh create:component Button
   $ osh create:component Input --ts
+  $ osh create:component --path=src/otherFolder Input
   $ osh create:component MyInput -i=Form
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.8/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.9/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -71,18 +73,20 @@ ARGUMENTS
   PAGE-NAME  Nome of the page
 
 OPTIONS
-  -h, --help  show CLI help
-  --ts        make with TypeScript
+  -h, --help            show CLI help
+  -p, --path=src/pages  [default: src/pages] change the path to your page
+  --ts                  make with TypeScript
 
 ALIASES
   $ osh cp
 
 EXAMPLES
   $ osh create:page SignIn
+  $ osh create:page -p=src/screens SignUp
   $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.8/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.9/src/commands/create/page.ts)_
 
 ## `osh help [COMMAND]`
 
