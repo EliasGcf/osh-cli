@@ -16,6 +16,12 @@ export default class CreateComponent extends Command {
   static flags = {
     help: flags.help({ char: 'h' }),
     ts: flags.boolean({ description: 'make with TypeScript' }),
+    path: flags.string({
+      char: 'p',
+      description: 'change the path to your component',
+      helpValue: 'src/components',
+      default: 'src/components',
+    }),
     index: flags.string({
       char: 'i',
       description: 'create index file to export for default your components',
@@ -25,6 +31,7 @@ export default class CreateComponent extends Command {
   static examples = [
     '$ osh create:component Button',
     '$ osh create:component Input --ts',
+    '$ osh create:component --path=src/otherFolder Input',
     '$ osh create:component MyInput -i=Form',
   ];
 
@@ -38,11 +45,9 @@ export default class CreateComponent extends Command {
 
   async run() {
     const { args, flags } = this.parse(CreateComponent);
-    const { ts, index: indexFolder } = flags;
+    const { ts, index: indexFolder, path } = flags;
     const componentName = args['component-name'];
-    const folder = indexFolder
-      ? `src/components/${indexFolder}`
-      : 'src/components';
+    const folder = indexFolder ? `${path}/${indexFolder}` : `${path}`;
 
     try {
       if (!isInProjectFolder()) {

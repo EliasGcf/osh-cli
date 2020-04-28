@@ -12,6 +12,12 @@ export default class CreatePage extends Command {
 
   static flags = {
     help: flags.help({ char: 'h' }),
+    path: flags.string({
+      char: 'p',
+      description: 'change the path to your page',
+      helpValue: 'src/pages',
+      default: 'src/pages',
+    }),
     ts: flags.boolean({ description: 'make with TypeScript' }),
   };
 
@@ -19,6 +25,7 @@ export default class CreatePage extends Command {
 
   static examples = [
     '$ osh create:page SignIn',
+    '$ osh create:page -p=src/screens SignUp',
     '$ osh create:page Dashboard --ts',
   ];
 
@@ -33,8 +40,8 @@ export default class CreatePage extends Command {
   async run() {
     const { args, flags } = this.parse(CreatePage);
     const componentName = args['page-name'];
-    const folder = 'src/pages';
-    const { ts } = flags;
+    const { ts, path } = flags;
+    const folder = path;
 
     try {
       if (!isInProjectFolder()) {
