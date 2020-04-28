@@ -6,6 +6,7 @@ import isInProjectFolder from '../../utils/isInProjectFolder';
 
 import createComponentService from '../../services/CreateComponentService';
 import createStylesService from '../../services/CreateStylesService';
+import createUpdateIndexFileService from '../../services/CreateUpdateIndexFileService';
 
 export default class CreateComponent extends Command {
   static description = 'Create new component inside src/components';
@@ -15,11 +16,16 @@ export default class CreateComponent extends Command {
   static flags = {
     help: flags.help({ char: 'h' }),
     ts: flags.boolean({ description: 'make with TypeScript' }),
+    index: flags.string({
+      char: 'i',
+      description: 'create index file to export for default your components',
+    }), // src/components/${index}
   };
 
   static examples = [
     '$ osh create:component Button',
     '$ osh create:component Input --ts',
+    '$ osh create:component MyInput -i=Form',
   ];
 
   static args = [
@@ -32,9 +38,11 @@ export default class CreateComponent extends Command {
 
   async run() {
     const { args, flags } = this.parse(CreateComponent);
+    const { ts, index: indexFolder } = flags;
     const componentName = args['component-name'];
-    const folder = 'src/components';
-    const { ts } = flags;
+    const folder = indexFolder
+      ? `src/components/${indexFolder}`
+      : 'src/components';
 
     try {
       if (!isInProjectFolder()) {
@@ -54,6 +62,16 @@ export default class CreateComponent extends Command {
         isTypeScript: ts,
       });
       this.log(chalk.green(`Craeted ${stylesFolderFullName}`));
+
+      if (indexFolder) {
+        const indexFolderFullName = await createUpdateIndexFileService.execute({
+          componentName,
+          folder,
+          isTypeScript: ts,
+        });
+
+        this.log(chalk.green(`Craeted|Updated ${indexFolderFullName}`));
+      }
 
       this.log('Finished 🚀');
     } catch (err) {
