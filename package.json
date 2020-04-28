@@ -10,6 +10,7 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "@oclif/plugin-autocomplete": "^0.1.5",
     "@oclif/plugin-help": "^2",
     "chalk": "^4.0.0",
     "handlebars": "^4.7.6",
@@ -47,7 +48,8 @@
     "commands": "./lib/commands",
     "bin": "osh",
     "plugins": [
-      "@oclif/plugin-help"
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete"
     ],
     "topics": {
       "create": {
