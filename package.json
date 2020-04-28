@@ -1,7 +1,7 @@
 {
   "name": "osh-cli",
   "description": "OmniStack Helper (osh) - Create your JS and TS components and more",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Elias Gabriel @EliasGcf",
   "bin": {
     "osh": "./bin/run"
