@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.9 darwin-x64 node-v12.16.2
+osh-cli/0.0.10 darwin-x64 node-v12.16.2
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -28,9 +28,33 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`osh autocomplete [SHELL]`](#osh-autocomplete-shell)
 * [`osh create:component COMPONENT-NAME`](#osh-createcomponent-component-name)
 * [`osh create:page PAGE-NAME`](#osh-createpage-page-name)
 * [`osh help [COMMAND]`](#osh-help-command)
+
+## `osh autocomplete [SHELL]`
+
+display autocomplete installation instructions
+
+```
+USAGE
+  $ osh autocomplete [SHELL]
+
+ARGUMENTS
+  SHELL  shell type
+
+OPTIONS
+  -r, --refresh-cache  Refresh cache (ignores displaying instructions)
+
+EXAMPLES
+  $ osh autocomplete
+  $ osh autocomplete bash
+  $ osh autocomplete zsh
+  $ osh autocomplete --refresh-cache
+```
+
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.1.5/src/commands/autocomplete/index.ts)_
 
 ## `osh create:component COMPONENT-NAME`
 
@@ -59,7 +83,7 @@ EXAMPLES
   $ osh create:component MyInput -i=Form
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.9/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.10/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -86,7 +110,7 @@ EXAMPLES
   $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.9/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.10/src/commands/create/page.ts)_
 
 ## `osh help [COMMAND]`
 
