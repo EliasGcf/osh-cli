@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.10 darwin-x64 node-v12.16.2
+osh-cli/0.0.11 darwin-x64 node-v12.16.2
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -31,6 +31,7 @@ USAGE
 * [`osh autocomplete [SHELL]`](#osh-autocomplete-shell)
 * [`osh create:component COMPONENT-NAME`](#osh-createcomponent-component-name)
 * [`osh create:page PAGE-NAME`](#osh-createpage-page-name)
+* [`osh create:route ROUTE-NAME`](#osh-createroute-route-name)
 * [`osh help [COMMAND]`](#osh-help-command)
 
 ## `osh autocomplete [SHELL]`
@@ -65,7 +66,7 @@ USAGE
   $ osh create:component COMPONENT-NAME
 
 ARGUMENTS
-  COMPONENT-NAME  Nome of the component
+  COMPONENT-NAME  Name of the component
 
 OPTIONS
   -h, --help                 show CLI help
@@ -83,7 +84,7 @@ EXAMPLES
   $ osh create:component MyInput -i=Form
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.10/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.11/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -94,7 +95,7 @@ USAGE
   $ osh create:page PAGE-NAME
 
 ARGUMENTS
-  PAGE-NAME  Nome of the page
+  PAGE-NAME  Name of the page
 
 OPTIONS
   -h, --help            show CLI help
@@ -110,7 +111,32 @@ EXAMPLES
   $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.10/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.11/src/commands/create/page.ts)_
+
+## `osh create:route ROUTE-NAME`
+
+Create new express route.(ts|js) inside src/routes
+
+```
+USAGE
+  $ osh create:route ROUTE-NAME
+
+ARGUMENTS
+  ROUTE-NAME  Name of route file
+
+OPTIONS
+  -h, --help             show CLI help
+  -p, --path=src/routes  [default: src/routes] change the path to your route
+  --ts                   make with TypeScript
+
+ALIASES
+  $ osh cr
+
+EXAMPLE
+  $ osh create:route users
+```
+
+_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.11/src/commands/create/route.ts)_
 
 ## `osh help [COMMAND]`
 
