@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.11 darwin-x64 node-v12.16.2
+osh-cli/0.0.12 darwin-x64 node-v12.16.2
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -84,7 +84,7 @@ EXAMPLES
   $ osh create:component MyInput -i=Form
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.11/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.12/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -111,7 +111,7 @@ EXAMPLES
   $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.11/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.12/src/commands/create/page.ts)_
 
 ## `osh create:route ROUTE-NAME`
 
@@ -136,7 +136,7 @@ EXAMPLE
   $ osh create:route users
 ```
 
-_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.11/src/commands/create/route.ts)_
+_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.12/src/commands/create/route.ts)_
 
 ## `osh help [COMMAND]`
 
