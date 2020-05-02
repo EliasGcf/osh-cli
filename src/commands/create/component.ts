@@ -38,7 +38,7 @@ export default class CreateComponent extends Command {
   static args = [
     {
       name: 'component-name',
-      description: 'Nome of the component',
+      description: 'Name of the component',
       required: true,
     },
   ];

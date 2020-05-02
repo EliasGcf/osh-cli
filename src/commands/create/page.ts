@@ -32,7 +32,7 @@ export default class CreatePage extends Command {
   static args = [
     {
       name: 'page-name',
-      description: 'Nome of the page',
+      description: 'Name of the page',
       required: true,
     },
   ];
