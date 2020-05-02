@@ -55,6 +55,9 @@
       "create": {
         "description": "Create some components"
       }
+    },
+    "hooks": {
+      "prerun": "./lib/hooks/prerun/isInProjectFolder"
     }
   },
   "repository": "EliasGcf/osh-cli",

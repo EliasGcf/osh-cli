@@ -2,7 +2,6 @@ import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
 
 import AppError from '../../errors/AppError';
-import isInProjectFolder from '../../utils/isInProjectFolder';
 
 import createRouteService from '../../services/CreateRouteService';
 
@@ -39,10 +38,6 @@ export default class CreateRoute extends Command {
     const folder = `${path}`;
 
     try {
-      if (!isInProjectFolder()) {
-        throw new AppError('This is not a Node.js project root folder');
-      }
-
       const routeFullPath = await createRouteService.execute({
         routeName,
         folder,

@@ -2,7 +2,6 @@ import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
 
 import AppError from '../../errors/AppError';
-import isInProjectFolder from '../../utils/isInProjectFolder';
 
 import createComponentService from '../../services/CreateComponentService';
 import createStylesService from '../../services/CreateStylesService';
@@ -44,10 +43,6 @@ export default class CreatePage extends Command {
     const folder = path;
 
     try {
-      if (!isInProjectFolder()) {
-        throw new AppError('This is not a Node.js project root folder');
-      }
-
       const componentFolderFullName = await createComponentService.execute({
         componentName,
         folder,
