@@ -20,7 +20,7 @@ class CreateStylesService {
     const folderWithName = `${folder}/${componentName}`; // src/components/Input
 
     // src/components/Input/style.{ts||js}
-    const fullFolderWithNameAndExtension = `${folderWithName}/style.${extensionPath}`;
+    const fullFolderWithNameAndExtension = `${folderWithName}/styles.${extensionPath}`;
 
     const pathTemplate = path.join(
       __dirname,
