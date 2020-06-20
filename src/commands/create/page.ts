@@ -5,6 +5,7 @@ import AppError from '../../errors/AppError';
 
 import createComponentService from '../../services/CreateComponentService';
 import createStylesService from '../../services/CreateStylesService';
+import isInProjectFolder from '../../utils/isInProjectFolder';
 
 export default class CreatePage extends Command {
   static description = 'Create new page inside src/pages';
@@ -43,6 +44,10 @@ export default class CreatePage extends Command {
     const folder = path;
 
     try {
+      if (!isInProjectFolder()) {
+        throw new AppError('This is not a Node.js project root folder');
+      }
+
       const componentFolderFullName = await createComponentService.execute({
         componentName,
         folder,

@@ -6,6 +6,7 @@ import AppError from '../../errors/AppError';
 import createComponentService from '../../services/CreateComponentService';
 import createStylesService from '../../services/CreateStylesService';
 import createUpdateIndexFileService from '../../services/CreateUpdateIndexFileService';
+import isInProjectFolder from '../../utils/isInProjectFolder';
 
 export default class CreateComponent extends Command {
   static description = 'Create new component inside src/components';
@@ -49,6 +50,10 @@ export default class CreateComponent extends Command {
     const folder = indexFolder ? `${path}/${indexFolder}` : `${path}`;
 
     try {
+      if (!isInProjectFolder()) {
+        throw new AppError('This is not a Node.js project root folder');
+      }
+
       const componentFolderFullName = await createComponentService.execute({
         componentName,
         folder,

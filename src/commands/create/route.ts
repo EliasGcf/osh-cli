@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import AppError from '../../errors/AppError';
 
 import createRouteService from '../../services/CreateRouteService';
+import isInProjectFolder from '../../utils/isInProjectFolder';
 
 export default class CreateRoute extends Command {
   static description = 'Create new express route.(ts|js) inside src/routes';
@@ -38,6 +39,10 @@ export default class CreateRoute extends Command {
     const folder = `${path}`;
 
     try {
+      if (!isInProjectFolder()) {
+        throw new AppError('This is not a Node.js project root folder');
+      }
+
       const routeFullPath = await createRouteService.execute({
         routeName,
         folder,
