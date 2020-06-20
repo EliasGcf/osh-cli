@@ -1,7 +1,7 @@
 {
   "name": "osh-cli",
   "description": "OmniStack Helper (osh) - Create your JS and TS components and more",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "author": "Elias Gabriel @EliasGcf",
   "bin": {
     "osh": "./bin/run"
@@ -55,9 +55,6 @@
       "create": {
         "description": "Create some components"
       }
-    },
-    "hooks": {
-      "prerun": "./lib/hooks/prerun/isInProjectFolder"
     }
   },
   "repository": "EliasGcf/osh-cli",
