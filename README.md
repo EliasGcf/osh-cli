@@ -19,7 +19,7 @@ $ npm install -g osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.15 darwin-x64 node-v12.16.3
+osh-cli/0.0.16 darwin-x64 node-v12.16.3
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -29,6 +29,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`osh autocomplete [SHELL]`](#osh-autocomplete-shell)
+* [`osh create:api`](#osh-createapi)
 * [`osh create:component COMPONENT-NAME`](#osh-createcomponent-component-name)
 * [`osh create:page PAGE-NAME`](#osh-createpage-page-name)
 * [`osh create:route ROUTE-NAME`](#osh-createroute-route-name)
@@ -57,6 +58,30 @@ EXAMPLES
 
 _See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.1.5/src/commands/autocomplete/index.ts)_
 
+## `osh create:api`
+
+Create the api service with axios inside src/services
+
+```
+USAGE
+  $ osh create:api
+
+OPTIONS
+  -h, --help               show CLI help
+  -p, --path=src/services  [default: src/services] change the path to your api service
+  --ts                     make with TypeScript
+
+ALIASES
+  $ osh capi
+
+EXAMPLES
+  $ osh create:api --ts
+  $ osh create:api --path src/utils
+  $ osh capi --ts
+```
+
+_See code: [src/commands/create/api.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/api.ts)_
+
 ## `osh create:component COMPONENT-NAME`
 
 Create new component inside src/components
@@ -84,7 +109,7 @@ EXAMPLES
   $ osh create:component MyInput -i=Form
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.15/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -111,7 +136,7 @@ EXAMPLES
   $ osh create:page Dashboard --ts
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.15/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/page.ts)_
 
 ## `osh create:route ROUTE-NAME`
 
@@ -136,7 +161,7 @@ EXAMPLE
   $ osh create:route users
 ```
 
-_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.15/src/commands/create/route.ts)_
+_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/route.ts)_
 
 ## `osh help [COMMAND]`
 
