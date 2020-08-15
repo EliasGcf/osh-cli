@@ -6,7 +6,6 @@
   "bin": {
     "osh": "./bin/run"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "bugs": "https://github.com/EliasGcf/osh-cli/issues",
   "dependencies": {
     "@oclif/command": "^1",
