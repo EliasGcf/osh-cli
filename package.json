@@ -1,8 +1,11 @@
 {
-  "name": "osh-cli",
+  "name": "@eliasgcf/osh-cli",
   "description": "OmniStack Helper (osh) - Create your JS and TS components and more",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "author": "Elias Gabriel @EliasGcf",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "bin": {
     "osh": "./bin/run"
   },
@@ -57,7 +60,7 @@
       }
     }
   },
-  "repository": "EliasGcf/osh-cli",
+  "repository": "git@github.com:EliasGcf/osh-cli.git",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme && if [ -e ./src/templates ]; then cp -a ./src/templates ./lib/; fi",

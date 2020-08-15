@@ -15,11 +15,11 @@ OmniStack Helper (osh) - Create your JS and TS components and more
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g osh-cli
+$ npm install -g @eliasgcf/osh-cli
 $ osh COMMAND
 running command...
 $ osh (-v|--version|version)
-osh-cli/0.0.16 darwin-x64 node-v12.16.3
+@eliasgcf/osh-cli/0.0.19 darwin-x64 node-v12.16.3
 $ osh --help [COMMAND]
 USAGE
   $ osh COMMAND
@@ -80,7 +80,7 @@ EXAMPLES
   $ osh capi --ts
 ```
 
-_See code: [src/commands/create/api.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/api.ts)_
+_See code: [src/commands/create/api.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.19/src/commands/create/api.ts)_
 
 ## `osh create:component COMPONENT-NAME`
 
@@ -97,7 +97,9 @@ OPTIONS
   -h, --help                 show CLI help
   -i, --index=index          create index file to export for default your components
   -p, --path=src/components  [default: src/components] change the path to your component
+  --mobile                   force make components for mobile
   --ts                       make with TypeScript
+  --web                      force make components for web
 
 ALIASES
   $ osh cc
@@ -107,9 +109,10 @@ EXAMPLES
   $ osh create:component Input --ts
   $ osh create:component --path=src/otherFolder Input
   $ osh create:component MyInput -i=Form
+  $ osh create:component Input --web --path packages/web/src/components
 ```
 
-_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/component.ts)_
+_See code: [src/commands/create/component.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.19/src/commands/create/component.ts)_
 
 ## `osh create:page PAGE-NAME`
 
@@ -125,7 +128,9 @@ ARGUMENTS
 OPTIONS
   -h, --help            show CLI help
   -p, --path=src/pages  [default: src/pages] change the path to your page
+  --mobile              force make page for mobile
   --ts                  make with TypeScript
+  --web                 force make page for web
 
 ALIASES
   $ osh cp
@@ -134,9 +139,10 @@ EXAMPLES
   $ osh create:page SignIn
   $ osh create:page -p=src/screens SignUp
   $ osh create:page Dashboard --ts
+  $ osh create:page SignUp --mobile --path packages/mobile/src/components
 ```
 
-_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/page.ts)_
+_See code: [src/commands/create/page.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.19/src/commands/create/page.ts)_
 
 ## `osh create:route ROUTE-NAME`
 
@@ -161,7 +167,7 @@ EXAMPLE
   $ osh create:route users
 ```
 
-_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.16/src/commands/create/route.ts)_
+_See code: [src/commands/create/route.ts](https://github.com/EliasGcf/osh-cli/blob/v0.0.19/src/commands/create/route.ts)_
 
 ## `osh help [COMMAND]`
 
