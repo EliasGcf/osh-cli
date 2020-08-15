@@ -11,6 +11,8 @@ interface CreateComponentServiceData {
   componentName: string;
   folder: string;
   isTypeScript: boolean;
+  isWeb: boolean;
+  isMobile: boolean;
 }
 
 class CreateComponentService {
@@ -18,9 +20,20 @@ class CreateComponentService {
     componentName,
     folder,
     isTypeScript,
+    isWeb,
+    isMobile,
   }: CreateComponentServiceData): Promise<string> {
     const extensionPath = isTypeScript ? 'ts' : 'js';
     const folderWithName = `${folder}/${componentName}`; // src/components/Input
+    let environmentPath = '';
+
+    if (isWeb) {
+      environmentPath = 'reactjs';
+    } else if (isMobile) {
+      environmentPath = 'react-native';
+    } else {
+      environmentPath = reactPath();
+    }
 
     if (componentExists({ folder, componentName })) {
       throw new AppError(`Component '${folderWithName}' already exists`);
@@ -35,7 +48,7 @@ class CreateComponentService {
       __dirname,
       '..',
       'templates',
-      reactPath(),
+      environmentPath,
       extensionPath,
       'component.hbs',
     );

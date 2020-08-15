@@ -8,6 +8,8 @@ interface CreateStylesServiceData {
   componentName: string;
   folder: string;
   isTypeScript: boolean;
+  isWeb: boolean;
+  isMobile: boolean;
 }
 
 class CreateStylesService {
@@ -15,9 +17,20 @@ class CreateStylesService {
     componentName,
     folder,
     isTypeScript,
+    isWeb,
+    isMobile,
   }: CreateStylesServiceData): Promise<string> {
     const extensionPath = isTypeScript ? 'ts' : 'js';
     const folderWithName = `${folder}/${componentName}`; // src/components/Input
+    let environmentPath = '';
+
+    if (isWeb) {
+      environmentPath = 'reactjs';
+    } else if (isMobile) {
+      environmentPath = 'react-native';
+    } else {
+      environmentPath = reactPath();
+    }
 
     // src/components/Input/style.{ts||js}
     const fullFolderWithNameAndExtension = `${folderWithName}/styles.${extensionPath}`;
@@ -26,7 +39,7 @@ class CreateStylesService {
       __dirname,
       '..',
       'templates',
-      reactPath(),
+      environmentPath,
       'styles.hbs',
     );
     const sourceTemplate = await fs.promises.readFile(pathTemplate, 'utf8');

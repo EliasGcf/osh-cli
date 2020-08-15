@@ -18,7 +18,15 @@ export default class CreatePage extends Command {
       helpValue: 'src/pages',
       default: 'src/pages',
     }),
-    ts: flags.boolean({ description: 'make with TypeScript' }),
+    ts: flags.boolean({ description: 'make with TypeScript', default: false }),
+    web: flags.boolean({
+      description: 'force make page for web',
+      default: false,
+    }),
+    mobile: flags.boolean({
+      description: 'force make page for mobile',
+      default: false,
+    }),
   };
 
   static aliases = ['cp'];
@@ -27,6 +35,7 @@ export default class CreatePage extends Command {
     '$ osh create:page SignIn',
     '$ osh create:page -p=src/screens SignUp',
     '$ osh create:page Dashboard --ts',
+    '$ osh create:page SignUp --mobile --path packages/mobile/src/components',
   ];
 
   static args = [
@@ -40,7 +49,7 @@ export default class CreatePage extends Command {
   async run() {
     const { args, flags } = this.parse(CreatePage);
     const componentName = args['page-name'];
-    const { ts, path } = flags;
+    const { ts, path, web, mobile } = flags;
     const folder = path;
 
     try {
@@ -52,6 +61,8 @@ export default class CreatePage extends Command {
         componentName,
         folder,
         isTypeScript: ts,
+        isWeb: web,
+        isMobile: mobile,
       });
       this.log(chalk.green(`Craeted ${componentFolderFullName}`));
 
@@ -59,6 +70,8 @@ export default class CreatePage extends Command {
         componentName,
         folder,
         isTypeScript: ts,
+        isWeb: web,
+        isMobile: mobile,
       });
       this.log(chalk.green(`Craeted ${stylesFolderFullName}`));
 

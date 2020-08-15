@@ -1,11 +1,12 @@
 {
   "name": "osh-cli",
   "description": "OmniStack Helper (osh) - Create your JS and TS components and more",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "author": "Elias Gabriel @EliasGcf",
   "bin": {
     "osh": "./bin/run"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "bugs": "https://github.com/EliasGcf/osh-cli/issues",
   "dependencies": {
     "@oclif/command": "^1",

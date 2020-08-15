@@ -15,7 +15,7 @@ export default class CreateComponent extends Command {
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    ts: flags.boolean({ description: 'make with TypeScript' }),
+    ts: flags.boolean({ description: 'make with TypeScript', default: false }),
     path: flags.string({
       char: 'p',
       description: 'change the path to your component',
@@ -26,6 +26,14 @@ export default class CreateComponent extends Command {
       char: 'i',
       description: 'create index file to export for default your components',
     }), // src/components/${index}
+    web: flags.boolean({
+      description: 'force make components for web',
+      default: false,
+    }),
+    mobile: flags.boolean({
+      description: 'force make components for mobile',
+      default: false,
+    }),
   };
 
   static examples = [
@@ -33,6 +41,7 @@ export default class CreateComponent extends Command {
     '$ osh create:component Input --ts',
     '$ osh create:component --path=src/otherFolder Input',
     '$ osh create:component MyInput -i=Form',
+    '$ osh create:component Input --web --path packages/web/src/components',
   ];
 
   static args = [
@@ -45,7 +54,7 @@ export default class CreateComponent extends Command {
 
   async run() {
     const { args, flags } = this.parse(CreateComponent);
-    const { ts, index: indexFolder, path } = flags;
+    const { ts, index: indexFolder, path, web, mobile } = flags;
     const componentName = args['component-name'];
     const folder = indexFolder ? `${path}/${indexFolder}` : `${path}`;
 
@@ -58,6 +67,8 @@ export default class CreateComponent extends Command {
         componentName,
         folder,
         isTypeScript: ts,
+        isWeb: web,
+        isMobile: mobile,
       });
       this.log(chalk.green(`Craeted ${componentFolderFullName}`));
 
@@ -65,6 +76,8 @@ export default class CreateComponent extends Command {
         componentName,
         folder,
         isTypeScript: ts,
+        isWeb: web,
+        isMobile: mobile,
       });
       this.log(chalk.green(`Craeted ${stylesFolderFullName}`));
 
